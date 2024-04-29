@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import ru.job4j.jwtjob4j.models.Person;
+import com.example.security_jwt_demo.models.Person;
 
 import java.io.Serial;
 import java.util.Collection;

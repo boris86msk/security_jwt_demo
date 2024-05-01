@@ -1,6 +1,8 @@
 package com.example.security_jwt_demo.controller;
 
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +23,7 @@ import com.example.security_jwt_demo.userdetails.UserDetailsImpl;
 
 import java.util.List;
 
+@Tag(name = "AuthController", description = "Контроллер аунтификации и авторизации")
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api/auth")
@@ -34,6 +37,9 @@ public class AuthController {
     @Autowired
     private JwtUtils jwtUtils;
 
+    @Operation(
+            summary = "Registration",
+            description = "Регистрация нового пользователя в системе")
     @PostMapping("/signup")
     public ResponseEntity<MessageResponseDTO> registerUser(@Valid @RequestBody SignupRequestDTO signUpRequest) {
         RegisterDTO registerDTO = personService.signUp(signUpRequest);
@@ -42,6 +48,9 @@ public class AuthController {
     }
 
 
+    @Operation(
+            summary = "Authentication",
+            description = "Аунтификация по юзернайму и паролю")
     @PostMapping("/signin")
     public ResponseEntity<JwtResponseDTO> authenticateUser(@Valid @RequestBody LoginRequestDTO loginRequestDTO) {
         Authentication authentication = authenticationManager

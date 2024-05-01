@@ -4,30 +4,35 @@
 
 ### Открытая школа разработчиков JAVA
 
+Проект пердставляет собой базоваый набор классов и настроек для приложения, безопасность которого обеспечивает
+популярный фреймворк Spring Security. Основными компонентами Spring Security являются фильтры — экземпляры
+классов, реализующих интерфейс Filter. В приложении на основе Servlet API, прежде чем запрос будет обработан сервлетом,
+он должен пройти через цепочку фильтров, каждый из которых может модифицировать запрос и ответ, а так же при 
+необходимости приостанавливать обработку запроса.
+
+### Стек технологий:
+
++ Java 17;
++ Maven;
++ Spring boot 3;
++ Spring Security
++ Spring Data;
++ Spring Web;
++ Liquibase
++ Lombok;
++ Postgres.
+
+### Запуск приложения:
+<p>1. Клонируем проект "git clone https://github.com/boris86msk/security_jwt_demo"</p>
+<p>2. Создаем базу данных "security" (PostgreSQL)</p>
+<p>3. Для сборки проекта в корне проекта выполняем команду "mvn install".</p>
+<p>4. Запуск приложения: "java -jar target/security_jwt_demo-0.0.1-SNAPSHOT.jar". По умолчанию риложение
+доступно на http://localhost:8083/</p>
+
 ### API
-{<br/>
-"username": "boris86",<br/>
-"email": "boris86@mail.ru",<br/>
-"role": ["mod", "user"],<br/>
-"password": "myPassword"<br/>
-}<br/>
+Документация по приложению, доступна после старта на http://localhost:8083/swagger-ui/index.html
+Для обращения к методам тестового контроллера PayLoadController
+необходимо пройти регистрацию и аунтификацию в AuthController
+последовательно в методах registerUser() и authenticateUser()
 
-Успешный ответ: "message": "Person registered successfully!"
-
-{<br/>
-"username": "boris86",<br/>
-"password": "myPassword"<br/>
-}<br/>
-
-{<br/>
-"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJib3Jpczg2IiwiaWF0IjoxNzE0MzI4MTcxLCJleHAiOjE3MTQzMzE3NzF9.k-D8x04DjYF8Bfzvj7-DJe2u2C4jpW7Xg4F8l9S-tNo",<br/>
-"type": "Bearer",<br/>
-"id": 1,<br/>
-"username": "boris86",<br/>
-"email": "boris86@mail.ru",<br/>
-"roles": [<br/>
-"ROLE_MODERATOR",<br/>
-"ROLE_USER"<br/>
-]<br/>
-}<br/>
 

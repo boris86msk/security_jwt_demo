@@ -1,5 +1,6 @@
 package com.example.security_jwt_demo.models;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -20,6 +21,7 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Schema(description = "User Model Information")
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
